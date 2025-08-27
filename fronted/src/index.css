@@ -1,0 +1,351 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+/* 美化侧边栏样式 - 白色主题 */
+.ant-layout-sider {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #f1f3f4 100%) !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid #e8e8e8;
+}
+
+.ant-layout-sider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(24, 144, 255, 0.02) 0%, rgba(24, 144, 255, 0.01) 100%);
+  pointer-events: none;
+}
+
+.ant-layout-sider .ant-menu {
+  background: transparent !important;
+  border-right: none !important;
+}
+
+.ant-layout-sider .ant-menu-item {
+  margin: 4px 12px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+  color: #595959;
+}
+
+.ant-layout-sider .ant-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(24, 144, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.ant-layout-sider .ant-menu-item:hover::before {
+  left: 100%;
+}
+
+.ant-layout-sider .ant-menu-item:hover {
+  background: rgba(24, 144, 255, 0.08) !important;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+  color: #1890ff;
+}
+
+.ant-layout-sider .ant-menu-item-selected {
+  background: linear-gradient(90deg, #1890ff, #40a9ff) !important;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+  transform: translateX(4px);
+}
+
+.ant-layout-sider .ant-menu-item .anticon {
+  font-size: 16px;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+  color: #8c8c8c;
+}
+
+.ant-layout-sider .ant-menu-item:hover .anticon {
+  transform: scale(1.1);
+  color: #1890ff;
+}
+
+.ant-layout-sider .ant-menu-item-selected .anticon {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+/* 侧边栏标题样式 */
+.sidebar-title {
+  color: #262626;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px 16px 16px;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, rgba(24, 144, 255, 0.08), rgba(24, 144, 255, 0.04));
+  border-radius: 8px;
+  margin: 16px 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.sidebar-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(24, 144, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* 侧边栏菜单项文字样式 */
+.ant-layout-sider .ant-menu-item span {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #595959;
+}
+
+.ant-layout-sider .ant-menu-item:hover span {
+  color: #1890ff;
+}
+
+.ant-layout-sider .ant-menu-item-selected span {
+  color: #ffffff;
+}
+
+/* 菜单项图标颜色 */
+.ant-layout-sider .ant-menu-item .anticon {
+  color: #8c8c8c;
+}
+
+.ant-layout-sider .ant-menu-item-selected .anticon {
+  color: #ffffff;
+}
+
+/* 添加一些额外的视觉效果 */
+.ant-layout-sider .ant-menu-item {
+  border-left: 3px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ant-layout-sider .ant-menu-item:hover {
+  border-left-color: rgba(24, 144, 255, 0.3);
+}
+
+.ant-layout-sider .ant-menu-item-selected {
+  border-left-color: #1890ff;
+}
+
+/* 添加菜单项激活时的脉冲效果 */
+.ant-layout-sider .ant-menu-item-selected::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: #1890ff;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    width: 200px !important;
+  }
+  
+  .sidebar-title {
+    font-size: 16px;
+    padding: 16px 12px 12px;
+  }
+}
+
+/* 添加侧边栏的玻璃态效果 */
+.ant-layout-sider {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 添加菜单项的玻璃态悬停效果 */
+.ant-layout-sider .ant-menu-item:hover {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* 添加选中菜单项的特殊效果 */
+.ant-layout-sider .ant-menu-item-selected {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(24, 144, 255, 0.2);
+}
+
+/* 添加侧边栏的边框效果 */
+.ant-layout-sider {
+  border-right: 1px solid #e8e8e8;
+}
+
+/* 添加菜单项的分隔线 */
+.ant-layout-sider .ant-menu-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 2px;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-form {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1890ff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dashboard-card {
+  margin-bottom: 16px;
+}
+
+.statistic-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.course-card {
+  margin-bottom: 16px;
+}
+
+.student-table {
+  margin-top: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notification-badge {
+  cursor: pointer;
+}
+
+.content-area {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: calc(100vh - 64px);
+}
+
+.page-header {
+  background: white;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  margin: 0;
+  color: #1890ff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form-section {
+  background: white;
+  padding: 24px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+} 
